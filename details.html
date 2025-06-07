@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Details</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="detailsContainer"></div>
+
+    <script src="data.js"></script>
+    <script>
+      const id = new URLSearchParams(window.location.search).get("id");
+      const show = shows.find((s) => s.id === id);
+
+      if (show) {
+        document.getElementById("detailsContainer").innerHTML = `
+        <div class="details">
+          <h1>${show.title}</h1>
+          <p>${show.description}</p>
+          <img src="${show.image}" alt="${show.title}">
+          <a href="watch.html?id=${show.id}">▶ Watch Trailer</a>
+        </div>
+      `;
+      }
+    </script>
+  </body>
+</html>

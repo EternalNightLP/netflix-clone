@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Watch</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="watchContainer"></div>
+
+    <script src="data.js"></script>
+    <script>
+      const id = new URLSearchParams(window.location.search).get("id");
+      const show = shows.find((s) => s.id === id);
+
+      if (show) {
+        document.getElementById("watchContainer").innerHTML = `
+        <h1>Now Watching: ${show.title}</h1>
+        <iframe width="560" height="315" src="${show.trailer}" frameborder="0" allowfullscreen></iframe>
+      `;
+      }
+    </script>
+  </body>
+</html>
